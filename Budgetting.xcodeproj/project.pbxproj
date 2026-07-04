@@ -16,6 +16,7 @@
 		922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */; };
 		922727632FF8CA030009A6F7 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727552FF8C1DA0009A6F7 /* DashboardViewModel.swift */; };
 		922727652FF8CA720009A6F7 /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727642FF8CA6F0009A6F7 /* ExpenseCategory.swift */; };
+		922727672FF8CBB30009A6F7 /* EditExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727662FF8CBA90009A6F7 /* EditExpenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCardView.swift; sourceTree = "<group>"; };
 		922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 		922727642FF8CA6F0009A6F7 /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
+		922727662FF8CBA90009A6F7 /* EditExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -134,6 +136,7 @@
 		922727482FF8C0170009A6F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				922727662FF8CBA90009A6F7 /* EditExpenseView.swift */,
 				9227275E2FF8C7560009A6F7 /* Components */,
 				9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */,
 				922727502FF8C1B80009A6F7 /* AddExpenseView.swift */,
@@ -336,6 +339,7 @@
 				922727562FF8C2EB0009A6F7 /* ContentView.swift in Sources */,
 				922727592FF8C5930009A6F7 /* DashboardView.swift in Sources */,
 				922727652FF8CA720009A6F7 /* ExpenseCategory.swift in Sources */,
+				922727672FF8CBB30009A6F7 /* EditExpenseView.swift in Sources */,
 				922727582FF8C49A0009A6F7 /* AddExpenseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

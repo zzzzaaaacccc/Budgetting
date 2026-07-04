@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExpenseCategory: String, CaseIterable, Codable {
+enum ExpenseCategory: String, CaseIterable, Codable, Identifiable {
 
     case food = "Food"
     case groceries = "Groceries"
@@ -15,7 +15,11 @@ enum ExpenseCategory: String, CaseIterable, Codable {
     case shopping = "Shopping"
     case entertainment = "Entertainment"
     case bills = "Bills"
+    case health = "Health"
+    case education = "Education"
     case other = "Other"
+
+    var id: String { rawValue }
 
     var icon: String {
 
@@ -38,6 +42,12 @@ enum ExpenseCategory: String, CaseIterable, Codable {
 
         case .bills:
             return "doc.text.fill"
+
+        case .health:
+            return "cross.case.fill"
+
+        case .education:
+            return "book.fill"
 
         case .other:
             return "creditcard.fill"

@@ -16,36 +16,85 @@ struct ExpenseListView: View {
     @Query(sort: \Expense.date, order: .reverse)
     private var expenses: [Expense]
 
+    @State private var searchText = ""
+    @State private var selectedCategory = "All"
+
+    @State private var selectedExpense: Expense?
+
+    private let categories = [
+        "All",
+        "Food",
+        "Groceries",
+        "Transport",
+        "Shopping",
+        "Entertainment",
+        "Bills",
+        "Health",
+        "Education",
+        "Other"
+    ]
+
+    private var filteredExpenses: [Expense] {
+
+        expenses.filter { expense in
+
+            let matchesSearch =
+                searchText.isEmpty ||
+                expense.title.localizedCaseInsensitiveContains(searchText) ||
+                expense.merchant.localizedCaseInsensitiveContains(searchText)
+
+            let matchesCategory =
+                selectedCategory == "All" ||
+                expense.category == selectedCategory
+
+            return matchesSearch && matchesCategory
+
+        }
+
+    }
+
     var body: some View {
 
-        List {
+        VStack {
 
-            ForEach(expenses) { expense in
+            Picker("Category", selection: $selectedCategory) {
 
-                NavigationLink {
+                ForEach(categories, id: \.self) { category in
 
-                    VStack(alignment: .leading, spacing: 12) {
-
-                        Text(expense.title)
-                            .font(.title)
-
-                        Text(expense.merchant)
-
-                        Text(expense.category)
-
-                        Text("$\(expense.amount, specifier: "%.2f")")
-
-                    }
-                    .padding()
-
-                } label: {
-
-                    ExpenseRowView(expense: expense)
+                    Text(category)
 
                 }
 
             }
-            .onDelete(perform: deleteExpenses)
+            .pickerStyle(.menu)
+            .padding(.horizontal)
+
+            List {
+
+                ForEach(filteredExpenses) { expense in
+
+                    Button {
+
+                        selectedExpense = expense
+
+                    } label: {
+
+                        ExpenseRowView(expense: expense)
+
+                    }
+                    .buttonStyle(.plain)
+
+                }
+                .onDelete(perform: deleteExpenses)
+
+            }
+            .searchable(text: $searchText)
+
+        }
+        .navigationTitle("Expenses")
+        .sheet(item: $selectedExpense) { expense in
+
+            EditExpenseView(expense: expense)
 
         }
 
@@ -57,7 +106,8 @@ struct ExpenseListView: View {
 
             for index in offsets {
 
-                modelContext.delete(expenses[index])
+                let expense = filteredExpenses[index]
+                modelContext.delete(expense)
 
             }
 
@@ -68,6 +118,8 @@ struct ExpenseListView: View {
 }
 
 #Preview {
+
     ExpenseListView()
         .modelContainer(for: Expense.self, inMemory: true)
+
 }
