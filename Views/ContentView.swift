@@ -31,7 +31,7 @@ struct ContentView: View {
                 }
 
                 NavigationLink {
-                    Text("Coming Soon")
+                    ReceiptScannerView()
                 } label: {
                     Label("Scan Receipt", systemImage: "doc.viewfinder")
                 }
