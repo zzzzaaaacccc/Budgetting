@@ -27,6 +27,6 @@ struct BudgettingApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [Expense.self, Budget.self])
     }
 }

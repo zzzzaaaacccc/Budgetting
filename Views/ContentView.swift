@@ -37,9 +37,13 @@ struct ContentView: View {
                 }
 
                 NavigationLink {
-                    Text("Coming Soon")
+
+                    SettingsView()
+
                 } label: {
+
                     Label("Settings", systemImage: "gearshape")
+
                 }
 
             }
