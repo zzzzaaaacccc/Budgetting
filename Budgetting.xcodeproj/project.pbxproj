@@ -14,6 +14,7 @@
 		9227275B2FF8C5AC0009A6F7 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */; };
 		922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */; };
 		922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */; };
+		922727632FF8CA030009A6F7 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727552FF8C1DA0009A6F7 /* DashboardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +328,7 @@
 				922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */,
 				922727572FF8C2F00009A6F7 /* Expense.swift in Sources */,
 				922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */,
+				922727632FF8CA030009A6F7 /* DashboardViewModel.swift in Sources */,
 				9227275B2FF8C5AC0009A6F7 /* ExpenseListView.swift in Sources */,
 				922727562FF8C2EB0009A6F7 /* ContentView.swift in Sources */,
 				922727592FF8C5930009A6F7 /* DashboardView.swift in Sources */,

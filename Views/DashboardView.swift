@@ -12,16 +12,9 @@ struct DashboardView: View {
 
     @Query(sort: \Expense.date, order: .reverse)
     private var expenses: [Expense]
+    
+    @State private var viewModel = DashboardViewModel()
 
-    private let monthlyBudget: Double = 1000
-
-    private var totalSpent: Double {
-        expenses.reduce(0) { $0 + $1.amount }
-    }
-
-    private var remainingBudget: Double {
-        max(monthlyBudget - totalSpent, 0)
-    }
 
     var body: some View {
 
@@ -34,8 +27,8 @@ struct DashboardView: View {
                     .bold()
 
                 BudgetCardView(
-                    monthlyBudget: monthlyBudget,
-                    totalSpent: totalSpent
+                    monthlyBudget: viewModel.monthlyBudget,
+                    totalSpent: viewModel.totalSpent(from: expenses)
                 )
 
                 recentExpenses
