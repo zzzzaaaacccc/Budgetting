@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Charts
 
 struct DashboardView: View {
 
@@ -31,6 +32,7 @@ struct DashboardView: View {
                     totalSpent: viewModel.totalSpent(from: expenses)
                 )
 
+                SpendingChartView(expenses: expenses)
                 recentExpenses
 
             }

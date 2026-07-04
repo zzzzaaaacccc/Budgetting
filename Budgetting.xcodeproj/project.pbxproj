@@ -19,6 +19,7 @@
 		922727672FF8CBB30009A6F7 /* EditExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727662FF8CBA90009A6F7 /* EditExpenseView.swift */; };
 		922727692FF8CC8F0009A6F7 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727682FF8CC8A0009A6F7 /* Budget.swift */; };
 		9227276B2FF8CCC60009A6F7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227276A2FF8CCC00009A6F7 /* SettingsView.swift */; };
+		9227276D2FF8CD6F0009A6F7 /* SpendingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227276C2FF8CD670009A6F7 /* SpendingChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		922727662FF8CBA90009A6F7 /* EditExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExpenseView.swift; sourceTree = "<group>"; };
 		922727682FF8CC8A0009A6F7 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		9227276A2FF8CCC00009A6F7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9227276C2FF8CD670009A6F7 /* SpendingChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -187,6 +189,7 @@
 		9227275E2FF8C7560009A6F7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9227276C2FF8CD670009A6F7 /* SpendingChartView.swift */,
 				922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */,
 				9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */,
 			);
@@ -340,6 +343,7 @@
 				922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */,
 				922727572FF8C2F00009A6F7 /* Expense.swift in Sources */,
 				922727692FF8CC8F0009A6F7 /* Budget.swift in Sources */,
+				9227276D2FF8CD6F0009A6F7 /* SpendingChartView.swift in Sources */,
 				922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */,
 				922727632FF8CA030009A6F7 /* DashboardViewModel.swift in Sources */,
 				9227275B2FF8C5AC0009A6F7 /* ExpenseListView.swift in Sources */,
