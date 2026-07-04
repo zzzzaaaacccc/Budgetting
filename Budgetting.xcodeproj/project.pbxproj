@@ -75,6 +75,12 @@
 		922727102FF8BFAB0009A6F7 = {
 			isa = PBXGroup;
 			children = (
+				9227274C2FF8C0310009A6F7 /* Resources */,
+				9227274B2FF8C02A0009A6F7 /* Utilities */,
+				9227274A2FF8C0230009A6F7 /* Services */,
+				922727492FF8C01C0009A6F7 /* ViewModels */,
+				922727482FF8C0170009A6F7 /* Views */,
+				922727452FF8C0010009A6F7 /* Models */,
 				9227271B2FF8BFAB0009A6F7 /* Budgetting */,
 				9227272B2FF8BFAC0009A6F7 /* BudgettingTests */,
 				922727352FF8BFAC0009A6F7 /* BudgettingUITests */,
@@ -90,6 +96,48 @@
 				922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		922727452FF8C0010009A6F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		922727482FF8C0170009A6F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		922727492FF8C01C0009A6F7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9227274A2FF8C0230009A6F7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9227274B2FF8C02A0009A6F7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9227274C2FF8C0310009A6F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
