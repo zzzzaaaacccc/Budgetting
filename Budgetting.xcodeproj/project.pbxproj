@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		922727562FF8C2EB0009A6F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227274E2FF8C1760009A6F7 /* ContentView.swift */; };
+		922727572FF8C2F00009A6F7 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227274D2FF8C14A0009A6F7 /* Expense.swift */; };
+		922727582FF8C49A0009A6F7 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727502FF8C1B80009A6F7 /* AddExpenseView.swift */; };
+		922727592FF8C5930009A6F7 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227274F2FF8C1B30009A6F7 /* DashboardView.swift */; };
+		9227275B2FF8C5AC0009A6F7 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */; };
+		922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */; };
+		922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		922727292FF8BFAC0009A6F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +37,17 @@
 		922727192FF8BFAB0009A6F7 /* Budgetting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922727282FF8BFAC0009A6F7 /* BudgettingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgettingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgettingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9227274D2FF8C14A0009A6F7 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		9227274E2FF8C1760009A6F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9227274F2FF8C1B30009A6F7 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		922727502FF8C1B80009A6F7 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		922727522FF8C1C70009A6F7 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
+		922727532FF8C1CD0009A6F7 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		922727542FF8C1D30009A6F7 /* BudgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetService.swift; sourceTree = "<group>"; };
+		922727552FF8C1DA0009A6F7 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
+		9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCardView.swift; sourceTree = "<group>"; };
+		922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -101,6 +122,7 @@
 		922727452FF8C0010009A6F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9227274D2FF8C14A0009A6F7 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +130,11 @@
 		922727482FF8C0170009A6F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9227275E2FF8C7560009A6F7 /* Components */,
+				9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */,
+				922727502FF8C1B80009A6F7 /* AddExpenseView.swift */,
+				9227274F2FF8C1B30009A6F7 /* DashboardView.swift */,
+				9227274E2FF8C1760009A6F7 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +142,7 @@
 		922727492FF8C01C0009A6F7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				922727552FF8C1DA0009A6F7 /* DashboardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -122,6 +150,9 @@
 		9227274A2FF8C0230009A6F7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				922727542FF8C1D30009A6F7 /* BudgetService.swift */,
+				922727532FF8C1CD0009A6F7 /* AIService.swift */,
+				922727522FF8C1C70009A6F7 /* OCRService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -138,6 +169,15 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9227275E2FF8C7560009A6F7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */,
+				9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */,
+				922727572FF8C2F00009A6F7 /* Expense.swift in Sources */,
+				922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */,
+				9227275B2FF8C5AC0009A6F7 /* ExpenseListView.swift in Sources */,
+				922727562FF8C2EB0009A6F7 /* ContentView.swift in Sources */,
+				922727592FF8C5930009A6F7 /* DashboardView.swift in Sources */,
+				922727582FF8C49A0009A6F7 /* AddExpenseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
