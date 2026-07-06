@@ -36,6 +36,8 @@
 		922727A02FFB38380009A6F7 /* AskExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227279F2FFB38370009A6F7 /* AskExpensesView.swift */; };
 		922727A22FFB43360009A6F7 /* DashboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727A12FFB43330009A6F7 /* DashboardCard.swift */; };
 		922727A42FFB44240009A6F7 /* BudgetRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727A32FFB44220009A6F7 /* BudgetRingView.swift */; };
+		922727B82FFB65600009A6F7 /* MerchantInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727B72FFB655F0009A6F7 /* MerchantInfoService.swift */; };
+		922727BA2FFB65830009A6F7 /* MerchantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727B92FFB65810009A6F7 /* MerchantInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		922727192FF8BFAB0009A6F7 /* Budgetting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetting.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		922727282FF8BFAC0009A6F7 /* BudgettingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgettingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgettingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		922727282FF8BFAC0009A6F7 /* BudgettingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BudgettingTests.xctest; path = /Users/zacharie/Desktop/Budgetting/build/Debug/Budgetting.app/Contents/PlugIns/BudgettingTests.xctest; sourceTree = "<absolute>"; };
+		922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BudgettingUITests.xctest; path = "/Users/zacharie/Desktop/Budgetting/build/Debug/BudgettingUITests-Runner.app/Contents/PlugIns/BudgettingUITests.xctest"; sourceTree = "<absolute>"; };
 		9227274D2FF8C14A0009A6F7 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		9227274E2FF8C1760009A6F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9227274F2FF8C1B30009A6F7 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -89,6 +90,9 @@
 		9227279F2FFB38370009A6F7 /* AskExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskExpensesView.swift; sourceTree = "<group>"; };
 		922727A12FFB43330009A6F7 /* DashboardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCard.swift; sourceTree = "<group>"; };
 		922727A32FFB44220009A6F7 /* BudgetRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRingView.swift; sourceTree = "<group>"; };
+		922727B62FFB65420009A6F7 /* Budgetting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetting.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		922727B72FFB655F0009A6F7 /* MerchantInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantInfoService.swift; sourceTree = "<group>"; };
+		922727B92FFB65810009A6F7 /* MerchantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -146,18 +150,8 @@
 				9227271B2FF8BFAB0009A6F7 /* Budgetting */,
 				9227272B2FF8BFAC0009A6F7 /* BudgettingTests */,
 				922727352FF8BFAC0009A6F7 /* BudgettingUITests */,
-				9227271A2FF8BFAB0009A6F7 /* Products */,
+				922727B62FFB65420009A6F7 /* Budgetting.app */,
 			);
-			sourceTree = "<group>";
-		};
-		9227271A2FF8BFAB0009A6F7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				922727192FF8BFAB0009A6F7 /* Budgetting.app */,
-				922727282FF8BFAC0009A6F7 /* BudgettingTests.xctest */,
-				922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		922727452FF8C0010009A6F7 /* Models */ = {
@@ -174,9 +168,10 @@
 		922727482FF8C0170009A6F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				922727B92FFB65810009A6F7 /* MerchantInfoView.swift */,
 				9227279F2FFB38370009A6F7 /* AskExpensesView.swift */,
 				9227279B2FFB35260009A6F7 /* InsightsView.swift */,
-				9227278C2FF8DD3B0009A6F7 /* ReceiptReviewView.swift */,
+				9227278E2FF8DFB30009A6F7 /* ExpenseDetailView.swift */,
 				9227276E2FF8CDE90009A6F7 /* Receipt */,
 				9227275E2FF8C7560009A6F7 /* Components */,
 				9227276A2FF8CCC00009A6F7 /* SettingsView.swift */,
@@ -201,11 +196,11 @@
 		9227274A2FF8C0230009A6F7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				922727B72FFB655F0009A6F7 /* MerchantInfoService.swift */,
 				9227279D2FFB37EA0009A6F7 /* AppleIntelligenceExpenseAssistant.swift */,
 				922727962FFB34B70009A6F7 /* ExpenseAnalyzer.swift */,
 				922727982FFB34E60009A6F7 /* AppleIntelligenceInsightsGenerator.swift */,
 				922727922FFB2CD30009A6F7 /* AppleIntelligenceReceiptParser.swift */,
-				9227278E2FF8DFB30009A6F7 /* ExpenseDetailView.swift */,
 				922727892FF8DBC90009A6F7 /* AI */,
 				922727872FF8D9620009A6F7 /* ReceiptParser.swift */,
 				922727542FF8C1D30009A6F7 /* BudgetService.swift */,
@@ -244,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				9227276F2FF8CDF20009A6F7 /* ReceiptScannerView.swift */,
+				9227278C2FF8DD3B0009A6F7 /* ReceiptReviewView.swift */,
 			);
 			path = Receipt;
 			sourceTree = "<group>";
@@ -278,7 +274,7 @@
 			packageProductDependencies = (
 			);
 			productName = Budgetting;
-			productReference = 922727192FF8BFAB0009A6F7 /* Budgetting.app */;
+			productReference = 922727B62FFB65420009A6F7 /* Budgetting.app */;
 			productType = "com.apple.product-type.application";
 		};
 		922727272FF8BFAC0009A6F7 /* BudgettingTests */ = {
@@ -360,7 +356,7 @@
 			mainGroup = 922727102FF8BFAB0009A6F7;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 9227271A2FF8BFAB0009A6F7 /* Products */;
+			productRefGroup = 922727102FF8BFAB0009A6F7;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -402,6 +398,7 @@
 			files = (
 				922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */,
 				922727A02FFB38380009A6F7 /* AskExpensesView.swift in Sources */,
+				922727B82FFB65600009A6F7 /* MerchantInfoService.swift in Sources */,
 				9227279C2FFB35270009A6F7 /* InsightsView.swift in Sources */,
 				922727572FF8C2F00009A6F7 /* Expense.swift in Sources */,
 				922727692FF8CC8F0009A6F7 /* Budget.swift in Sources */,
@@ -409,6 +406,7 @@
 				9227278B2FF8DBD30009A6F7 /* AIReceiptParser.swift in Sources */,
 				922727A42FFB44240009A6F7 /* BudgetRingView.swift in Sources */,
 				922727732FF8D1440009A6F7 /* OCRService.swift in Sources */,
+				922727BA2FFB65830009A6F7 /* MerchantInfoView.swift in Sources */,
 				9227276D2FF8CD6F0009A6F7 /* SpendingChartView.swift in Sources */,
 				922727702FF8CDF80009A6F7 /* ReceiptScannerView.swift in Sources */,
 				922727932FFB2CD40009A6F7 /* AppleIntelligenceReceiptParser.swift in Sources */,
@@ -588,7 +586,17 @@
 				DEVELOPMENT_TEAM = 6J77454CF6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -632,7 +640,17 @@
 				DEVELOPMENT_TEAM = 6J77454CF6;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

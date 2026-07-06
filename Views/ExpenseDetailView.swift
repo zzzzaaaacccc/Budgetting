@@ -2,7 +2,7 @@
 //  ExpenseDetailView.swift
 //  Budgetting
 //
-//  Created by Zacharie on 6/7/26.
+//  Created by Zacharie on 4/7/26.
 //
 
 import SwiftUI
@@ -39,6 +39,8 @@ struct ExpenseDetailView: View {
                 receiptImage
 
                 detailsCard
+                
+                MerchantInfoView(merchant: expense.merchant)
 
                 itemsCard
 
@@ -134,7 +136,7 @@ struct ExpenseDetailView: View {
             systemImage: "cart.fill"
         ) {
 
-            if expense.receiptItems.isEmpty {
+            if (expense.receiptItems ?? []).isEmpty {
 
                 Text("No item details available.")
                     .foregroundStyle(.secondary)
@@ -143,13 +145,8 @@ struct ExpenseDetailView: View {
 
                 VStack(alignment: .leading, spacing: 8) {
 
-                    ForEach(
-                        Array(expense.receiptItems.enumerated()),
-                        id: \.offset
-                    ) { _, item in
-
+                    ForEach(expense.receiptItems ?? [], id: \.self) { item in
                         Text("• \(item)")
-
                     }
 
                 }
