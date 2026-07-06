@@ -35,16 +35,26 @@ struct ContentView: View {
                 } label: {
                     Label("Scan Receipt", systemImage: "doc.viewfinder")
                 }
+                
+                NavigationLink {
+                    InsightsView()
+                } label: {
+                    Label("Insights", systemImage: "sparkles")
+                }
+                
+                NavigationLink {
+                    AskExpensesView()
+                } label: {
+                    Label("Ask", systemImage: "sparkles")
+                }
 
                 NavigationLink {
-
                     SettingsView()
-
                 } label: {
-
                     Label("Settings", systemImage: "gearshape")
-
                 }
+                
+                
 
             }
 

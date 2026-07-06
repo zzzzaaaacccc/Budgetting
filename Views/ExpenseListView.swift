@@ -17,9 +17,8 @@ struct ExpenseListView: View {
     private var expenses: [Expense]
 
     @State private var searchText = ""
-    @State private var selectedCategory = "All"
 
-    @State private var selectedExpense: Expense?
+    @State private var selectedCategory = "All"
 
     private let categories = [
         "All",
@@ -57,11 +56,15 @@ struct ExpenseListView: View {
 
         VStack {
 
-            Picker("Category", selection: $selectedCategory) {
+            Picker(
+                "Category",
+                selection: $selectedCategory
+            ) {
 
                 ForEach(categories, id: \.self) { category in
 
                     Text(category)
+                        .tag(category)
 
                 }
 
@@ -73,41 +76,66 @@ struct ExpenseListView: View {
 
                 ForEach(filteredExpenses) { expense in
 
-                    Button {
+                    NavigationLink {
 
-                        selectedExpense = expense
+                        ExpenseDetailView(
+                            expense: expense
+                        )
 
                     } label: {
 
-                        ExpenseRowView(expense: expense)
+                        ExpenseRowView(
+                            expense: expense
+                        )
 
                     }
-                    .buttonStyle(.plain)
+                    .swipeActions {
+
+                        Button(
+                            role: .destructive
+                        ) {
+
+                            withAnimation {
+
+                                modelContext.delete(expense)
+
+                            }
+
+                        } label: {
+
+                            Label(
+                                "Delete",
+                                systemImage: "trash"
+                            )
+
+                        }
+
+                    }
 
                 }
-                .onDelete(perform: deleteExpenses)
+                .onDelete(
+                    perform: deleteExpenses
+                )
 
             }
             .searchable(text: $searchText)
 
         }
         .navigationTitle("Expenses")
-        .sheet(item: $selectedExpense) { expense in
-
-            EditExpenseView(expense: expense)
-
-        }
 
     }
 
-    private func deleteExpenses(offsets: IndexSet) {
+    private func deleteExpenses(
+        offsets: IndexSet
+    ) {
 
         withAnimation {
 
             for index in offsets {
 
-                let expense = filteredExpenses[index]
-                modelContext.delete(expense)
+                modelContext.delete(
+                    filteredExpenses[index]
+                )
 
             }
 
@@ -120,6 +148,9 @@ struct ExpenseListView: View {
 #Preview {
 
     ExpenseListView()
-        .modelContainer(for: Expense.self, inMemory: true)
+        .modelContainer(
+            for: Expense.self,
+            inMemory: true
+        )
 
 }

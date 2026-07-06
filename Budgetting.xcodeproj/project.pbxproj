@@ -25,6 +25,17 @@
 		922727732FF8D1440009A6F7 /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727522FF8C1C70009A6F7 /* OCRService.swift */; };
 		922727862FF8D93E0009A6F7 /* ParsedReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727852FF8D9370009A6F7 /* ParsedReceipt.swift */; };
 		922727882FF8D9B90009A6F7 /* ReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727872FF8D9620009A6F7 /* ReceiptParser.swift */; };
+		9227278B2FF8DBD30009A6F7 /* AIReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227278A2FF8DBCC0009A6F7 /* AIReceiptParser.swift */; };
+		9227278D2FF8DD3C0009A6F7 /* ReceiptReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227278C2FF8DD3B0009A6F7 /* ReceiptReviewView.swift */; };
+		9227278F2FF8DFB80009A6F7 /* ExpenseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227278E2FF8DFB30009A6F7 /* ExpenseDetailView.swift */; };
+		922727932FFB2CD40009A6F7 /* AppleIntelligenceReceiptParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727922FFB2CD30009A6F7 /* AppleIntelligenceReceiptParser.swift */; };
+		922727972FFB34B80009A6F7 /* ExpenseAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727962FFB34B70009A6F7 /* ExpenseAnalyzer.swift */; };
+		922727992FFB34EB0009A6F7 /* AppleIntelligenceInsightsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727982FFB34E60009A6F7 /* AppleIntelligenceInsightsGenerator.swift */; };
+		9227279C2FFB35270009A6F7 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227279B2FFB35260009A6F7 /* InsightsView.swift */; };
+		9227279E2FFB37EB0009A6F7 /* AppleIntelligenceExpenseAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227279D2FFB37EA0009A6F7 /* AppleIntelligenceExpenseAssistant.swift */; };
+		922727A02FFB38380009A6F7 /* AskExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227279F2FFB38370009A6F7 /* AskExpensesView.swift */; };
+		922727A22FFB43360009A6F7 /* DashboardCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727A12FFB43330009A6F7 /* DashboardCard.swift */; };
+		922727A42FFB44240009A6F7 /* BudgetRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727A32FFB44220009A6F7 /* BudgetRingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +64,6 @@
 		9227274F2FF8C1B30009A6F7 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		922727502FF8C1B80009A6F7 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		922727522FF8C1C70009A6F7 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
-		922727532FF8C1CD0009A6F7 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
 		922727542FF8C1D30009A6F7 /* BudgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetService.swift; sourceTree = "<group>"; };
 		922727552FF8C1DA0009A6F7 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
@@ -68,6 +78,17 @@
 		922727712FF8D0E50009A6F7 /* ReceiptScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptScannerViewModel.swift; sourceTree = "<group>"; };
 		922727852FF8D9370009A6F7 /* ParsedReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedReceipt.swift; sourceTree = "<group>"; };
 		922727872FF8D9620009A6F7 /* ReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptParser.swift; sourceTree = "<group>"; };
+		9227278A2FF8DBCC0009A6F7 /* AIReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIReceiptParser.swift; sourceTree = "<group>"; };
+		9227278C2FF8DD3B0009A6F7 /* ReceiptReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptReviewView.swift; sourceTree = "<group>"; };
+		9227278E2FF8DFB30009A6F7 /* ExpenseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailView.swift; sourceTree = "<group>"; };
+		922727922FFB2CD30009A6F7 /* AppleIntelligenceReceiptParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceReceiptParser.swift; sourceTree = "<group>"; };
+		922727962FFB34B70009A6F7 /* ExpenseAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseAnalyzer.swift; sourceTree = "<group>"; };
+		922727982FFB34E60009A6F7 /* AppleIntelligenceInsightsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceInsightsGenerator.swift; sourceTree = "<group>"; };
+		9227279B2FFB35260009A6F7 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		9227279D2FFB37EA0009A6F7 /* AppleIntelligenceExpenseAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIntelligenceExpenseAssistant.swift; sourceTree = "<group>"; };
+		9227279F2FFB38370009A6F7 /* AskExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskExpensesView.swift; sourceTree = "<group>"; };
+		922727A12FFB43330009A6F7 /* DashboardCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCard.swift; sourceTree = "<group>"; };
+		922727A32FFB44220009A6F7 /* BudgetRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -153,6 +174,9 @@
 		922727482FF8C0170009A6F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9227279F2FFB38370009A6F7 /* AskExpensesView.swift */,
+				9227279B2FFB35260009A6F7 /* InsightsView.swift */,
+				9227278C2FF8DD3B0009A6F7 /* ReceiptReviewView.swift */,
 				9227276E2FF8CDE90009A6F7 /* Receipt */,
 				9227275E2FF8C7560009A6F7 /* Components */,
 				9227276A2FF8CCC00009A6F7 /* SettingsView.swift */,
@@ -177,9 +201,14 @@
 		9227274A2FF8C0230009A6F7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9227279D2FFB37EA0009A6F7 /* AppleIntelligenceExpenseAssistant.swift */,
+				922727962FFB34B70009A6F7 /* ExpenseAnalyzer.swift */,
+				922727982FFB34E60009A6F7 /* AppleIntelligenceInsightsGenerator.swift */,
+				922727922FFB2CD30009A6F7 /* AppleIntelligenceReceiptParser.swift */,
+				9227278E2FF8DFB30009A6F7 /* ExpenseDetailView.swift */,
+				922727892FF8DBC90009A6F7 /* AI */,
 				922727872FF8D9620009A6F7 /* ReceiptParser.swift */,
 				922727542FF8C1D30009A6F7 /* BudgetService.swift */,
-				922727532FF8C1CD0009A6F7 /* AIService.swift */,
 				922727522FF8C1C70009A6F7 /* OCRService.swift */,
 			);
 			path = Services;
@@ -202,6 +231,8 @@
 		9227275E2FF8C7560009A6F7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				922727A32FFB44220009A6F7 /* BudgetRingView.swift */,
+				922727A12FFB43330009A6F7 /* DashboardCard.swift */,
 				9227276C2FF8CD670009A6F7 /* SpendingChartView.swift */,
 				922727612FF8C80A0009A6F7 /* ExpenseRowView.swift */,
 				9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */,
@@ -215,6 +246,14 @@
 				9227276F2FF8CDF20009A6F7 /* ReceiptScannerView.swift */,
 			);
 			path = Receipt;
+			sourceTree = "<group>";
+		};
+		922727892FF8DBC90009A6F7 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				9227278A2FF8DBCC0009A6F7 /* AIReceiptParser.swift */,
+			);
+			path = AI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,22 +401,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				922727602FF8C7670009A6F7 /* BudgetCardView.swift in Sources */,
+				922727A02FFB38380009A6F7 /* AskExpensesView.swift in Sources */,
+				9227279C2FFB35270009A6F7 /* InsightsView.swift in Sources */,
 				922727572FF8C2F00009A6F7 /* Expense.swift in Sources */,
 				922727692FF8CC8F0009A6F7 /* Budget.swift in Sources */,
+				922727992FFB34EB0009A6F7 /* AppleIntelligenceInsightsGenerator.swift in Sources */,
+				9227278B2FF8DBD30009A6F7 /* AIReceiptParser.swift in Sources */,
+				922727A42FFB44240009A6F7 /* BudgetRingView.swift in Sources */,
 				922727732FF8D1440009A6F7 /* OCRService.swift in Sources */,
 				9227276D2FF8CD6F0009A6F7 /* SpendingChartView.swift in Sources */,
 				922727702FF8CDF80009A6F7 /* ReceiptScannerView.swift in Sources */,
+				922727932FFB2CD40009A6F7 /* AppleIntelligenceReceiptParser.swift in Sources */,
+				9227278D2FF8DD3C0009A6F7 /* ReceiptReviewView.swift in Sources */,
+				922727A22FFB43360009A6F7 /* DashboardCard.swift in Sources */,
+				9227278F2FF8DFB80009A6F7 /* ExpenseDetailView.swift in Sources */,
 				922727622FF8C80F0009A6F7 /* ExpenseRowView.swift in Sources */,
 				922727632FF8CA030009A6F7 /* DashboardViewModel.swift in Sources */,
 				9227275B2FF8C5AC0009A6F7 /* ExpenseListView.swift in Sources */,
 				922727562FF8C2EB0009A6F7 /* ContentView.swift in Sources */,
 				922727592FF8C5930009A6F7 /* DashboardView.swift in Sources */,
+				9227279E2FFB37EB0009A6F7 /* AppleIntelligenceExpenseAssistant.swift in Sources */,
 				922727882FF8D9B90009A6F7 /* ReceiptParser.swift in Sources */,
 				922727722FF8D0E80009A6F7 /* ReceiptScannerViewModel.swift in Sources */,
 				922727862FF8D93E0009A6F7 /* ParsedReceipt.swift in Sources */,
 				922727652FF8CA720009A6F7 /* ExpenseCategory.swift in Sources */,
 				922727672FF8CBB30009A6F7 /* EditExpenseView.swift in Sources */,
 				922727582FF8C49A0009A6F7 /* AddExpenseView.swift in Sources */,
+				922727972FFB34B80009A6F7 /* ExpenseAnalyzer.swift in Sources */,
 				9227276B2FF8CCC60009A6F7 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

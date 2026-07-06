@@ -8,9 +8,16 @@
 import SwiftUI
 import SwiftData
 
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
+
 struct EditExpenseView: View {
 
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
 
     let expense: Expense
 
@@ -48,6 +55,40 @@ struct EditExpenseView: View {
 
             Form {
 
+                if let data = expense.receiptImage {
+
+                    Section("Receipt") {
+
+#if os(macOS)
+
+                        if let image = NSImage(data: data) {
+
+                            Image(nsImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 350)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                        }
+
+#else
+
+                        if let image = UIImage(data: data) {
+
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 350)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+
+                        }
+
+#endif
+
+                    }
+
+                }
+
                 Section("Expense") {
 
                     TextField("Title", text: $title)
@@ -55,6 +96,7 @@ struct EditExpenseView: View {
                     TextField("Merchant", text: $merchant)
 
                     TextField("Amount", text: $amount)
+
 #if os(iOS)
                         .keyboardType(.decimalPad)
 #endif
@@ -62,7 +104,9 @@ struct EditExpenseView: View {
                     Picker("Category", selection: $category) {
 
                         ForEach(categories, id: \.self) { category in
+
                             Text(category)
+
                         }
 
                     }
@@ -70,7 +114,8 @@ struct EditExpenseView: View {
                 }
 
             }
-            .navigationTitle("Edit Expense")
+            .navigationTitle("Expense Details")
+
             .toolbar {
 
                 ToolbarItem(placement: .confirmationAction) {
@@ -90,7 +135,7 @@ struct EditExpenseView: View {
 
                 ToolbarItem(placement: .cancellationAction) {
 
-                    Button("Cancel") {
+                    Button("Close") {
 
                         dismiss()
 

@@ -15,93 +15,234 @@ final class ReceiptParser {
 
         let lines = text
             .components(separatedBy: .newlines)
-            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { !$0.isEmpty }
+            .map {
+                $0.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            .filter {
+                !$0.isEmpty
+            }
 
-        // Merchant
-        if let first = lines.first {
-            receipt.merchant = first
-        }
+        receipt.merchant = extractMerchant(from: lines)
 
-        // Total
         receipt.total = extractTotal(from: lines)
 
-        // Date
-        receipt.date = extractDate(from: lines)
+        receipt.date = extractDateString(from: lines)
 
-        // Items
         receipt.items = extractItems(from: lines)
 
-        // Category
         receipt.category = suggestCategory(
             merchant: receipt.merchant,
             items: receipt.items
+        )
+
+        receipt.title = suggestTitle(
+            merchant: receipt.merchant,
+            category: receipt.category
         )
 
         return receipt
 
     }
 
+    // MARK: Merchant
+
+    private func extractMerchant(from lines: [String]) -> String {
+
+        let text = lines.joined(separator: " ").uppercased()
+
+        if text.contains("SHENG") || text.contains("SENG") {
+            return "Sheng Siong"
+        }
+
+        if text.contains("STARBUCKS") {
+            return "Starbucks"
+        }
+
+        if text.contains("NTUC") || text.contains("FAIRPRICE") {
+            return "NTUC FairPrice"
+        }
+
+        if text.contains("MCDONALD") {
+            return "McDonald's"
+        }
+
+        if text.contains("KFC") {
+            return "KFC"
+        }
+
+        if text.contains("SUBWAY") {
+            return "Subway"
+        }
+
+        if text.contains("GRAB") {
+            return "Grab"
+        }
+
+        return lines.first ?? "Unknown"
+
+    }
+
+    // MARK: Total
+
     private func extractTotal(from lines: [String]) -> Double? {
 
-        let keywords = [
-            "TOTAL",
-            "AMOUNT",
-            "NET",
-            "PAY",
-            "SGD",
-            "$"
-        ]
+        let regex = try! NSRegularExpression(
+            pattern: #"([0-9]+\.[0-9]{2})"#
+        )
 
-        for line in lines.reversed() {
+        var largest: Double?
+
+        for line in lines {
 
             let upper = line.uppercased()
 
-            if keywords.contains(where: upper.contains) {
+            if upper.contains("TOTAL")
+                || upper.contains("AMOUNT")
+                || upper.contains("PAYABLE")
+            {
 
-                if let value = firstDecimal(in: line) {
-                    return value
+                let matches = regex.matches(
+                    in: line,
+                    range: NSRange(
+                        line.startIndex...,
+                        in: line
+                    )
+                )
+
+                for match in matches {
+
+                    if let range = Range(match.range(at: 1), in: line) {
+
+                        let value = Double(line[range])
+
+                        if largest == nil || value! > largest! {
+
+                            largest = value
+
+                        }
+
+                    }
+
                 }
 
             }
 
         }
 
-        return nil
+        return largest
 
     }
 
-    private func extractDate(from lines: [String]) -> Date? {
+    // MARK: Date
 
-        let formatter = DateFormatter()
+    private func extractDateString(from lines: [String]) -> String {
 
-        formatter.dateFormat = "dd/MM/yyyy"
+        let patterns = [
+            #"\d{2}/\d{2}/\d{4}"#,
+            #"\d{2}-\d{2}-\d{4}"#,
+            #"\d{4}/\d{2}/\d{2}"#,
+            #"\d{4}-\d{2}-\d{2}"#
+        ]
 
         for line in lines {
 
-            if let date = formatter.date(from: line) {
-                return date
+            for pattern in patterns {
+
+                if let regex = try? NSRegularExpression(pattern: pattern),
+                   let match = regex.firstMatch(
+                        in: line,
+                        range: NSRange(line.startIndex..., in: line)
+                   ),
+                   let range = Range(match.range, in: line) {
+
+                    return String(line[range])
+
+                }
+
             }
 
         }
 
-        return nil
+        return ""
 
     }
+
+    // MARK: Items
 
     private func extractItems(from lines: [String]) -> [String] {
 
-        lines.filter {
+        var items: [String] = []
 
-            !$0.contains("$")
-            &&
-            !$0.lowercased().contains("total")
-            &&
-            !$0.lowercased().contains("gst")
+        let excludedKeywords = [
+
+            "TOTAL",
+            "SUB TOTAL",
+            "AMOUNT",
+            "GST",
+            "CASHIER",
+            "CHANGE",
+            "RECEIPT",
+            "TAX",
+            "DISCOUNT",
+            "CARD",
+            "MASTERCARD",
+            "VISA",
+            "NETS",
+            "THANK",
+            "PHONE",
+            "TEL",
+            "FAX",
+            "DATE",
+            "TIME",
+            "QTY"
+
+        ]
+
+        for line in lines {
+
+            let text = line.trimmingCharacters(in: .whitespaces)
+
+            if text.count < 4 {
+                continue
+            }
+
+            if excludedKeywords.contains(where: {
+                text.uppercased().contains($0)
+            }) {
+                continue
+            }
+
+            if text.range(of: #"^\d+(\.\d+)?$"#, options: .regularExpression) != nil {
+                continue
+            }
+
+            if text.range(of: #"^\d+$"#, options: .regularExpression) != nil {
+                continue
+            }
+
+            if text.contains("$") {
+                continue
+            }
+
+            if text.range(of: #"\d{10,}"#, options: .regularExpression) != nil {
+                continue
+            }
+
+            let letters = text.filter(\.isLetter)
+
+            if letters.count < 3 {
+                continue
+            }
+
+            items.append(text)
 
         }
 
+        return Array(Set(items)).sorted()
+
     }
+
+    // MARK: Category
 
     private func suggestCategory(
         merchant: String,
@@ -111,57 +252,62 @@ final class ReceiptParser {
         let text = (merchant + " " + items.joined(separator: " "))
             .lowercased()
 
-        if text.contains("starbucks")
-            || text.contains("coffee")
-            || text.contains("mcdonald")
-            || text.contains("kfc")
-            || text.contains("subway")
-            || text.contains("toast")
-            || text.contains("restaurant")
+        if text.contains("sheng")
+            || text.contains("ntuc")
+            || text.contains("fairprice")
+            || text.contains("grocery")
         {
-            return "Food"
+
+            return "Groceries"
+
         }
 
-        if text.contains("ntuc")
-            || text.contains("fairprice")
-            || text.contains("sheng siong")
-            || text.contains("cold storage")
+        if text.contains("starbucks")
+            || text.contains("coffee")
+            || text.contains("restaurant")
+            || text.contains("kfc")
+            || text.contains("mcdonald")
         {
-            return "Groceries"
+
+            return "Food"
+
         }
 
         if text.contains("grab")
-            || text.contains("comfort")
             || text.contains("taxi")
             || text.contains("mrt")
         {
+
             return "Transport"
+
         }
 
         return "Other"
 
     }
 
-    private func firstDecimal(in text: String) -> Double? {
+    // MARK: Title
 
-        let regex = try? NSRegularExpression(
-            pattern: #"([0-9]+(?:\.[0-9]{2})?)"#
-        )
+    private func suggestTitle(
+        merchant: String,
+        category: String
+    ) -> String {
 
-        guard
-            let match = regex?.firstMatch(
-                in: text,
-                range: NSRange(
-                    text.startIndex...,
-                    in: text
-                )
-            ),
-            let range = Range(match.range(at: 1), in: text)
-        else {
-            return nil
+        switch category {
+
+        case "Groceries":
+            return "Grocery Shopping"
+
+        case "Food":
+            return "Meal"
+
+        case "Transport":
+            return "Transport"
+
+        default:
+            return merchant
+
         }
-
-        return Double(text[range])
 
     }
 
