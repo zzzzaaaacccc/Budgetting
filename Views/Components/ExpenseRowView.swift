@@ -50,32 +50,22 @@ struct ExpenseRowView: View {
     }
 
     var body: some View {
-
         HStack(spacing: 16) {
-
             receiptThumbnail
-
             VStack(alignment: .leading, spacing: 6) {
-
                 Text(expense.title)
                     .font(.headline)
                     .lineLimit(1)
-
                 Text(expense.merchant)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
-
                 Text(expense.category)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
-
             }
-
             Spacer()
-
             VStack(alignment: .trailing, spacing: 6) {
-
                 Text(
                     expense.amount,
                     format: .currency(code: "SGD")
@@ -88,13 +78,21 @@ struct ExpenseRowView: View {
                 )
                 .font(.caption)
                 .foregroundStyle(.secondary)
-
             }
-
         }
         .padding()
         .background(.regularMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(
+            "\(expense.title), \(expense.merchant)"
+        )
+        .accessibilityValue(
+            "\(expense.amount.formatted(.currency(code: "SGD"))), \(expense.category)"
+        )
+        .accessibilityHint(
+            "Double tap to view expense details."
+        )
 
     }
 

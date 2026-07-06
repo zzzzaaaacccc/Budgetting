@@ -144,6 +144,8 @@ struct ReceiptScannerView: View {
                 ) {
                     Label("Photos", systemImage: "photo")
                         .frame(maxWidth: .infinity)
+                        .accessibilityLabel("Choose receipt from Photos")
+                        .accessibilityHint("Select a receipt image from your photo library.")
                 }
                 .buttonStyle(.bordered)
 
@@ -153,6 +155,8 @@ struct ReceiptScannerView: View {
                 } label: {
                     Label("Files", systemImage: "folder")
                         .frame(maxWidth: .infinity)
+                        .accessibilityLabel("Choose receipt from Files")
+                        .accessibilityHint("Select a receipt image from your files.")
                 }
                 .buttonStyle(.borderedProminent)
 #else
@@ -161,6 +165,8 @@ struct ReceiptScannerView: View {
                 } label: {
                     Label("Files", systemImage: "folder")
                         .frame(maxWidth: .infinity)
+                        .accessibilityLabel("Choose receipt from Files")
+                        .accessibilityHint("Select a receipt image from your files.")
                 }
                 .buttonStyle(.borderedProminent)
 #endif
@@ -174,6 +180,8 @@ struct ReceiptScannerView: View {
     private var processingCard: some View {
         HStack(spacing: 12) {
             ProgressView()
+                .accessibilityLabel("Scanning receipt")
+                .accessibilityHint("Apple Intelligence is extracting receipt details.")
 
             VStack(alignment: .leading, spacing: 4) {
                 Text("Apple Intelligence is reading your receipt")
