@@ -110,7 +110,7 @@ Users can ask natural language questions such as:
 
 ## Expense Detail
 
-![Expense Detail](Screenshots/detailed_expense_from_image.png)
+![Expense Detail](Screenshots/detailed_expenses_from_image.png)
 
 ---
 
