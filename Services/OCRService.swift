@@ -5,38 +5,23 @@
 //  Created by Zacharie on 4/7/26.
 //
 
+import CoreGraphics
 import Foundation
-import Vision
+@preconcurrency import Vision
 
 #if os(iOS)
 import UIKit
-public typealias PlatformImage = UIImage
 #elseif os(macOS)
 import AppKit
-public typealias PlatformImage = NSImage
 #endif
 
-final class OCRService {
+enum OCRService {
 
-    func recognizeText(from image: PlatformImage) async throws -> String {
+    static func recognizeText(
+        from image: PlatformImage
+    ) async throws -> String {
 
-#if os(iOS)
-
-        guard let cgImage = image.cgImage else {
-            return ""
-        }
-
-#else
-
-        guard
-            let data = image.tiffRepresentation,
-            let bitmap = NSBitmapImageRep(data: data),
-            let cgImage = bitmap.cgImage
-        else {
-            return ""
-        }
-
-#endif
+        let cgImage = try createCGImage(from: image)
 
         return try await withCheckedThrowingContinuation { continuation in
 
@@ -47,32 +32,85 @@ final class OCRService {
                     return
                 }
 
-                guard let observations = request.results as? [VNRecognizedTextObservation] else {
+                guard let observations =
+                        request.results as? [VNRecognizedTextObservation]
+                else {
                     continuation.resume(returning: "")
                     return
                 }
 
                 let text = observations
-                    .compactMap { $0.topCandidates(1).first?.string }
+                    .compactMap {
+                        $0.topCandidates(1).first?.string
+                    }
                     .joined(separator: "\n")
 
                 continuation.resume(returning: text)
-
             }
 
             request.recognitionLevel = .accurate
             request.usesLanguageCorrection = true
+            request.recognitionLanguages = [
+                "en-SG",
+                "en-US"
+            ]
 
-            let handler = VNImageRequestHandler(cgImage: cgImage)
+            let handler = VNImageRequestHandler(
+                cgImage: cgImage,
+                options: [:]
+            )
 
-            do {
-                try handler.perform([request])
-            } catch {
-                continuation.resume(throwing: error)
+            DispatchQueue.global(
+                qos: .userInitiated
+            ).async {
+
+                do {
+                    try handler.perform([request])
+                } catch {
+                    continuation.resume(throwing: error)
+                }
             }
-
         }
-
     }
 
+    private static func createCGImage(
+        from image: PlatformImage
+    ) throws -> CGImage {
+
+#if os(iOS)
+        guard let cgImage = image.cgImage else {
+            throw OCRServiceError.invalidImage
+        }
+
+        return cgImage
+#elseif os(macOS)
+        var proposedRect = CGRect(
+            origin: .zero,
+            size: image.size
+        )
+
+        guard let cgImage = image.cgImage(
+            forProposedRect: &proposedRect,
+            context: nil,
+            hints: nil
+        ) else {
+            throw OCRServiceError.invalidImage
+        }
+
+        return cgImage
+#endif
+    }
+}
+
+enum OCRServiceError: LocalizedError {
+
+    case invalidImage
+
+    var errorDescription: String? {
+
+        switch self {
+        case .invalidImage:
+            return "The selected file could not be converted into an image."
+        }
+    }
 }

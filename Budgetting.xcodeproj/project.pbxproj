@@ -38,6 +38,7 @@
 		922727A42FFB44240009A6F7 /* BudgetRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727A32FFB44220009A6F7 /* BudgetRingView.swift */; };
 		922727B82FFB65600009A6F7 /* MerchantInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727B72FFB655F0009A6F7 /* MerchantInfoService.swift */; };
 		922727BA2FFB65830009A6F7 /* MerchantInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922727B92FFB65810009A6F7 /* MerchantInfoView.swift */; };
+		92D1A4EB3013130E00546542 /* PlatformImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1A4EA3013125500546542 /* PlatformImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,14 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		922727282FF8BFAC0009A6F7 /* BudgettingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BudgettingTests.xctest; path = /Users/zacharie/Desktop/Budgetting/build/Debug/Budgetting.app/Contents/PlugIns/BudgettingTests.xctest; sourceTree = "<absolute>"; };
-		922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BudgettingUITests.xctest; path = "/Users/zacharie/Desktop/Budgetting/build/Debug/BudgettingUITests-Runner.app/Contents/PlugIns/BudgettingUITests.xctest"; sourceTree = "<absolute>"; };
 		9227274D2FF8C14A0009A6F7 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		9227274E2FF8C1760009A6F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9227274F2FF8C1B30009A6F7 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		922727502FF8C1B80009A6F7 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		922727522FF8C1C70009A6F7 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
-		922727542FF8C1D30009A6F7 /* BudgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetService.swift; sourceTree = "<group>"; };
 		922727552FF8C1DA0009A6F7 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		9227275A2FF8C5A90009A6F7 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
 		9227275F2FF8C7660009A6F7 /* BudgetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCardView.swift; sourceTree = "<group>"; };
@@ -93,6 +91,9 @@
 		922727B62FFB65420009A6F7 /* Budgetting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922727B72FFB655F0009A6F7 /* MerchantInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantInfoService.swift; sourceTree = "<group>"; };
 		922727B92FFB65810009A6F7 /* MerchantInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantInfoView.swift; sourceTree = "<group>"; };
+		92D1A4DA3013110300546542 /* BudgettingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgettingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D1A4DB3013110300546542 /* BudgettingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgettingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D1A4EA3013125500546542 /* PlatformImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -151,6 +152,8 @@
 				9227272B2FF8BFAC0009A6F7 /* BudgettingTests */,
 				922727352FF8BFAC0009A6F7 /* BudgettingUITests */,
 				922727B62FFB65420009A6F7 /* Budgetting.app */,
+				92D1A4DA3013110300546542 /* BudgettingTests.xctest */,
+				92D1A4DB3013110300546542 /* BudgettingUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,7 +206,6 @@
 				922727922FFB2CD30009A6F7 /* AppleIntelligenceReceiptParser.swift */,
 				922727892FF8DBC90009A6F7 /* AI */,
 				922727872FF8D9620009A6F7 /* ReceiptParser.swift */,
-				922727542FF8C1D30009A6F7 /* BudgetService.swift */,
 				922727522FF8C1C70009A6F7 /* OCRService.swift */,
 			);
 			path = Services;
@@ -212,6 +214,7 @@
 		9227274B2FF8C02A0009A6F7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				92D1A4EA3013125500546542 /* PlatformImage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -297,7 +300,7 @@
 			packageProductDependencies = (
 			);
 			productName = BudgettingTests;
-			productReference = 922727282FF8BFAC0009A6F7 /* BudgettingTests.xctest */;
+			productReference = 92D1A4DA3013110300546542 /* BudgettingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		922727312FF8BFAC0009A6F7 /* BudgettingUITests */ = {
@@ -320,7 +323,7 @@
 			packageProductDependencies = (
 			);
 			productName = BudgettingUITests;
-			productReference = 922727322FF8BFAC0009A6F7 /* BudgettingUITests.xctest */;
+			productReference = 92D1A4DB3013110300546542 /* BudgettingUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -425,6 +428,7 @@
 				922727652FF8CA720009A6F7 /* ExpenseCategory.swift in Sources */,
 				922727672FF8CBB30009A6F7 /* EditExpenseView.swift in Sources */,
 				922727582FF8C49A0009A6F7 /* AddExpenseView.swift in Sources */,
+				92D1A4EB3013130E00546542 /* PlatformImage.swift in Sources */,
 				922727972FFB34B80009A6F7 /* ExpenseAnalyzer.swift in Sources */,
 				9227276B2FF8CCC60009A6F7 /* SettingsView.swift in Sources */,
 			);
