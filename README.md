@@ -2,29 +2,17 @@
 
 > An AI-powered native expense management application built with SwiftUI, SwiftData, Vision OCR, and Apple Foundation Models.
 
-<p align="center">
-
-![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20macOS-blue)
-
-![Swift](https://img.shields.io/badge/Swift-6-orange)
-
-![SwiftUI](https://img.shields.io/badge/SwiftUI-Native-green)
-
-![Apple Intelligence](https://img.shields.io/badge/Apple-Foundation%20Models-black)
-
-</p>
-
 ---
 
 ## Overview
 
-Budgetting is a modern native expense management application designed for Apple platforms.
+Budgetting is a native AI-powered expense management application for Apple platforms.
 
-Instead of manually entering expenses, users simply scan a receipt. The application uses Apple's Vision framework to extract text, Foundation Models to understand the receipt, and SwiftData to store structured expense information locally.
+Instead of manually entering expenses, users simply scan a receipt. The application uses Apple's Vision framework for OCR, Foundation Models for structured receipt understanding, and SwiftData for local persistence.
 
-Beyond receipt scanning, Budgetting provides AI-generated spending insights and allows users to ask natural language questions about their expenses using Apple's on-device Foundation Models.
+To improve reliability on long and complex receipts, the application processes OCR text in multiple AI stages, including chunked receipt understanding and dedicated payment extraction before presenting results for user review.
 
-The project was built to explore modern Apple platform development while demonstrating production-oriented engineering practices including MVVM architecture, accessibility, Swift Testing, and native platform integrations.
+The project explores modern Apple platform development while demonstrating production-oriented AI engineering practices including MVVM architecture, Swift Concurrency, accessibility, and on-device AI.
 
 ---
 
@@ -34,7 +22,10 @@ The project was built to explore modern Apple platform development while demonst
 
 - Scan receipts directly from Photos or Files
 - Optical Character Recognition using Vision
-- AI-powered receipt understanding using Foundation Models
+- AI-powered structured receipt understanding using Apple Foundation Models
+- Chunked AI processing for long OCR documents
+- Dedicated AI payment extraction for improved total accuracy
+- Review and edit AI-extracted information before saving
 - Automatic extraction of:
   - Merchant
   - Total amount
@@ -120,7 +111,7 @@ Users can ask natural language questions such as:
 
 ---
 
-## Ask Apple Intelligence
+## Natural Language Expense Queries
 
 ![Ask AI](Screenshots/ask.png)
 
@@ -129,17 +120,24 @@ Users can ask natural language questions such as:
 # Architecture
 
 ```
-                     SwiftUI Views
+                      SwiftUI Views
+                            │
+                            ▼
+                    ViewModels (MVVM)
+                            │
+        ┌───────────────────┼───────────────────┐
+        ▼                   ▼                   ▼
+ Vision OCR         AI Receipt Pipeline    Expense Services
+        │                   │                   │
+        ▼                   ▼                   ▼
+ Text Extraction   Foundation Models      SwiftData
+                           │
+        ┌──────────────────┴──────────────────┐
+        ▼                                     ▼
+ Chunked Receipt Parsing          Payment Evidence Extraction
                            │
                            ▼
-                     ViewModels (MVVM)
-                           │
-        ┌──────────────────┼──────────────────┐
-        ▼                  ▼                  ▼
- Receipt Parser      Expense Services      AI Services
-        │                  │                  │
-        ▼                  ▼                  ▼
- Vision OCR          SwiftData         Foundation Models
+                    Structured Receipt
 ```
 
 ---
@@ -162,6 +160,8 @@ Users can ask natural language questions such as:
 
 - Apple Foundation Models
 - LanguageModelSession
+- Guided Generation (@Generable, @Guide)
+- Prompt Engineering
 
 ### OCR
 
@@ -200,13 +200,37 @@ This project demonstrates:
 - Native Apple platform development
 - Modern SwiftUI architecture
 - On-device AI integration
-- OCR document processing
+- OCR document processing using Vision
+- On-device LLM integration with Apple Foundation Models
+- Chunked AI processing for large documents
+- Structured generation using @Generable and @Guide
+- AI-assisted financial information extraction
 - Local-first data persistence
 - Receipt image storage
 - Natural language querying
 - Unit testing
 - UI testing
 - Accessibility support
+
+---
+
+# Engineering Challenges and Solutions
+
+### Processing Long Receipts
+
+Large digital receipts could exceed the context window of Apple's on-device Foundation Models.
+
+To support longer receipts, the OCR output is split into smaller sections and processed using multiple AI sessions before being consolidated into a single structured receipt.
+
+### Improving Financial Accuracy
+
+Receipts often contain many monetary values such as subtotals, taxes, discounts and final totals.
+
+Instead of relying on a single extraction pass, the application performs a dedicated AI payment extraction step to identify the final amount paid before verifying it against the original OCR text. This significantly improves reliability for complex receipts while keeping the workflow fully AI-powered.
+
+### Human-in-the-Loop Review
+
+All AI-generated receipt information is presented to the user for review and editing before being stored in SwiftData, preventing incorrect OCR or AI output from being persisted automatically.
 
 ---
 
@@ -219,18 +243,6 @@ The project includes automated tests covering:
 - Receipt parsing
 - Business logic
 - UI launch tests
-
----
-
-# Future Improvements
-
-- CloudKit synchronisation
-- Widgets
-- Apple Wallet transaction import
-- Recurring expense detection
-- REST API synchronisation
-- Intelligent budget forecasting
-- Multi-device synchronisation
 
 ---
 
